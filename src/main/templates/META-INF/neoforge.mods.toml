@@ -4,6 +4,8 @@
 # Note that there are a couple of TOML lists in this file.
 # Find more information on toml format here:  https://github.com/toml-lang/toml
 
+## I don't know why this is in templates, but I'm not scared to move it as it breaks every time I try
+
 # The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
 modLoader="javafml" #mandatory
 
@@ -46,12 +48,12 @@ authors="Moosyu"
 
 # The description text for the mod (multi line!) (#mandatory)
 description='''
-
+Converts vanilla Minecraft to an MMO (based on Hypixel Skyblock).
 '''
 
 # The [[mixins]] block allows you to declare your mixin config to FML so that it gets loaded.
-#[[mixins]]
-#config="${mod_id}.mixins.json"
+[[mixins]]
+config="${mod_id}.mixins.json"
 
 # The [[accessTransformers]] block allows you to declare where your AT file is.
 # If this block is omitted, a fallback attempt will be made to load an AT from META-INF/accesstransformer.cfg

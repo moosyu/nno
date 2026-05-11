@@ -4,7 +4,7 @@ import io.github.moosyu.attachments.PlayerSkillsAttachment;
 import io.github.moosyu.experience.BlocksFarmingExperience;
 import io.github.moosyu.experience.BlocksMiningExperience;
 import io.github.moosyu.registers.AttachmentRegistry;
-import io.github.moosyu.sounds.ExperienceSounds;
+import io.github.moosyu.sounds.ModSounds;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Block;
@@ -30,26 +30,26 @@ public class BlockBreakHandler {
             float miningExp = BlocksMiningExperience.getExp(block);
             if (miningExp > 0.0f) {
                 skills.addMiningExp(miningExp);
-                ExperienceSounds.playerExperienceSound(player);
+                ModSounds.playerExperienceSound(player);
                 return;
             }
 
             float farmingExp = BlocksFarmingExperience.getExp(block);
             if (farmingExp > 0.0f) {
                 skills.addFarmingExp(BlocksFarmingExperience.getExp(block));
-                ExperienceSounds.playerExperienceSound(player);
+                ModSounds.playerExperienceSound(player);
                 return;
             }
 
             if (blockState.is(BlockTags.LOGS)) {
                 skills.addForagingExp(6.0f);
-                ExperienceSounds.playerExperienceSound(player);
+                ModSounds.playerExperienceSound(player);
                 return;
             }
 
             if (blockState.is(BlockTags.FLOWERS)) {
                 skills.addForagingExp(1.0f);
-                ExperienceSounds.playerExperienceSound(player);
+                ModSounds.playerExperienceSound(player);
                 return;
             }
         }
