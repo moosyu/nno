@@ -6,7 +6,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 
-// Perhaps DefferedRegister should be involved here, I'll look into it though.
+// Perhaps DeferredRegister should be involved here, I'll look into it though. <-- I looked into it and there doesn't seem like command registries, sorry registry fans.
 public class CommandHandler {
     @EventBusSubscriber(modid = "nno")
     public static class EventHandler {

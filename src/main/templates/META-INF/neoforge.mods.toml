@@ -4,7 +4,7 @@
 # Note that there are a couple of TOML lists in this file.
 # Find more information on toml format here:  https://github.com/toml-lang/toml
 
-## I don't know why this is in templates, but I'm not scared to move it as it breaks every time I try
+## I don't know why this is in templates, but I'm not scared to move it as it breaks every time I try <--- Turns out it's meant to be here
 
 # The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
 modLoader="javafml" #mandatory
@@ -57,8 +57,8 @@ config="${mod_id}.mixins.json"
 
 # The [[accessTransformers]] block allows you to declare where your AT file is.
 # If this block is omitted, a fallback attempt will be made to load an AT from META-INF/accesstransformer.cfg
-#[[accessTransformers]]
-#file="META-INF/accesstransformer.cfg"
+[[accessTransformers]]
+file="META-INF/accesstransformer.cfg"
 
 # The coremods config file path is not configurable and is always loaded from META-INF/coremods.json
 
