@@ -18,6 +18,7 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 import static io.github.moosyu.registers.AttachmentRegistry.ATTACHMENTS;
+import static io.github.moosyu.registers.AttributesRegistry.ATTRIBUTES;
 import static io.github.moosyu.registers.BlocksRegistry.BLOCKS;
 import static io.github.moosyu.registers.CreativeTabsRegistry.CREATIVE_MODE_TABS;
 import static io.github.moosyu.registers.ItemsRegistry.*;
@@ -43,6 +44,7 @@ public class NNO {
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
         ATTACHMENTS.register(modEventBus);
+        ATTRIBUTES.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (NNO) to respond directly to events.

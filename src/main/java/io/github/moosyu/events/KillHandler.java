@@ -12,8 +12,10 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 
+import static io.github.moosyu.NNO.MODID;
+
 public class KillHandler {
-    @EventBusSubscriber(modid = "nno")
+    @EventBusSubscriber(modid = MODID)
     public static class EventHandler {
         @SubscribeEvent
         public static void onEntityDeath(LivingDeathEvent event) {
@@ -24,8 +26,8 @@ public class KillHandler {
                 if (player.level().isClientSide()) {
                     return;
                 }
-
                 PlayerSkillsAttachment skills = player.getData(AttachmentRegistry.PLAYER_SKILLS.get());
+
                 float combatExp = EntityCombatExperience.getExp(event.getEntity().getType());
                 if (combatExp > 0.0f) {
                     skills.addCombatExp(combatExp);

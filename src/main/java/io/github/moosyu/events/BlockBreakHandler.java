@@ -13,8 +13,10 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.BlockEvent;
 
+import static io.github.moosyu.NNO.MODID;
+
 public class BlockBreakHandler {
-    @EventBusSubscriber(modid = "nno")
+    @EventBusSubscriber(modid = MODID)
     public static class EventHandler {
         @SubscribeEvent
         public static void onBlockBreak(BlockEvent.BreakEvent event) {
@@ -42,7 +44,7 @@ public class BlockBreakHandler {
             }
 
             if (blockState.is(BlockTags.LOGS)) {
-                skills.addForagingExp(6.0f);
+                skills.addForagingExp(TreeSweepHandler.trySweep(player.level(), event.getPos(), player) + 1 * 6.0f);
                 ModSounds.playerExperienceSound(player);
                 return;
             }

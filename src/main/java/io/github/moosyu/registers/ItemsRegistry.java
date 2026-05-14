@@ -1,11 +1,15 @@
 package io.github.moosyu.registers;
 
 import io.github.moosyu.items.TreecapitatorItem;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EquipmentSlotGroup;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -23,5 +27,10 @@ public class ItemsRegistry {
             .food(new FoodProperties.Builder()
             .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
 
-    public static final DeferredItem<Item> TREECAPITATOR = ITEMS.register("treecapitator", () -> new TreecapitatorItem(Tiers.GOLD, new Item.Properties()));
+    public static final DeferredItem<Item> TREECAPITATOR = ITEMS.register("treecapitator", () -> new TreecapitatorItem(Tiers.GOLD,
+            new Item.Properties().attributes(ItemAttributeModifiers.builder().add(AttributesRegistry.SWEEP,
+                    new AttributeModifier(ResourceLocation.fromNamespaceAndPath(MODID, "sweep"),
+                            5,
+                            AttributeModifier.Operation.ADD_VALUE),
+                    EquipmentSlotGroup.MAINHAND).build())));
 }

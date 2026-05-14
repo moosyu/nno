@@ -1,6 +1,5 @@
 package io.github.moosyu.events;
 
-import io.github.moosyu.helpers.ModHelpers;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -10,8 +9,10 @@ import net.neoforged.neoforge.event.level.BlockDropsEvent;
 
 import java.util.List;
 
+import static io.github.moosyu.NNO.MODID;
+
 public class BlockDropHandler {
-    @EventBusSubscriber(modid = "nno")
+    @EventBusSubscriber(modid = MODID)
     public static class EventHandler {
         @SubscribeEvent
         public static void onBlockDrop(BlockDropsEvent event) {
