@@ -25,7 +25,7 @@ public class ItemFishedHandler {
             }
 
             for (ItemStack fishingItem : event.getDrops()) {
-                skills.addFishingExp(ItemsFishingExperience.getExp(fishingItem.getItem()));
+                skills.addExp(PlayerSkillsAttachment.Skill.FISHING, ItemsFishingExperience.getExp(fishingItem.getItem()));
                 ModSounds.playerExperienceSound(player);
             }
         }

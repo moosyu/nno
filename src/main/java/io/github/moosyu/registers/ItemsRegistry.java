@@ -21,11 +21,15 @@ public class ItemsRegistry {
     // Creates a new BlockItem with the id "nno:example_block", combining the namespace and path
     public static final DeferredItem<BlockItem> EXAMPLE_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("example_block", EXAMPLE_BLOCK);
 
-    // Creates a new food item with the id "nno:example_id", nutrition 1 and saturation 2
-    public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties()
-            .food(new FoodProperties.Builder()
-            .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
-
+    public static final DeferredItem<AxeItem> MERCENARY_AXE = ITEMS.register("mercenary_axe", () -> new AxeItem(Tiers.IRON, new Item.Properties().attributes(
+                    ItemAttributeModifiers.builder().add(AttributesRegistry.DAMAGE,
+                            new AttributeModifier(ResourceLocation.fromNamespaceAndPath(MODID, "damage"), 70, AttributeModifier.Operation.ADD_VALUE),
+                            EquipmentSlotGroup.MAINHAND).add(AttributesRegistry.STRENGTH,
+                            new AttributeModifier(ResourceLocation.fromNamespaceAndPath(MODID, "strength"), 20, AttributeModifier.Operation.ADD_VALUE),
+                            EquipmentSlotGroup.MAINHAND
+                    ).build()
+            ))
+    );
     // todo: make it so the foraging fortune only applies in certain areas (the park, not the galatea)
     public static final DeferredItem<AxeItem> TREECAPITATOR = ITEMS.register("treecapitator", () -> new AxeItem(Tiers.GOLD, new Item.Properties().attributes(
                     ItemAttributeModifiers.builder().add(AttributesRegistry.SWEEP,

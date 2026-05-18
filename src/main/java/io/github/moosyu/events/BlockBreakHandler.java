@@ -32,14 +32,16 @@ public class BlockBreakHandler {
 
             float miningExp = BlocksMiningExperience.getExp(block);
             if (miningExp > 0.0f) {
-                skills.addMiningExp(miningExp);
+                skills.addExp(PlayerSkillsAttachment.Skill.MINING, miningExp);
                 ModSounds.playerExperienceSound(player);
                 return;
             }
 
+            // todo: make braking cactus' both add their drops to inventory but count broken cactus parts for exp
+            // could just do the same thing as done with sweeping but less costly as it's just the block above
             float farmingExp = BlocksFarmingExperience.getExp(block);
             if (farmingExp > 0.0f) {
-                skills.addFarmingExp(BlocksFarmingExperience.getExp(block));
+                skills.addExp(PlayerSkillsAttachment.Skill.FARMING, BlocksFarmingExperience.getExp(block));
                 ModSounds.playerExperienceSound(player);
                 return;
             }
@@ -52,7 +54,7 @@ public class BlockBreakHandler {
             }
 
             if (blockState.is(BlockTags.FLOWERS)) {
-                skills.addForagingExp(1.0f);
+                skills.addExp(PlayerSkillsAttachment.Skill.FORAGING, 1.0f);
                 ModSounds.playerExperienceSound(player);
                 return;
             }

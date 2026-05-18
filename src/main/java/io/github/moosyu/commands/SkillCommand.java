@@ -16,11 +16,12 @@ public class SkillCommand {
             }
             PlayerSkillsAttachment skills = player.getData(AttachmentRegistry.PLAYER_SKILLS.get());
             context.getSource().sendSuccess(() ->
-                            net.minecraft.network.chat.Component.literal("Foraging exp: " + skills.getForagingExp() + "\n" +
-                                    "Combat exp: " + skills.getCombatExp() + "\n" +
-                                    "Farming exp: " + skills.getFarmingExp() + "\n" +
-                                    "Fishing exp: " + skills.getFishingExp() + "\n" +
-                                    "Mining exp: " + skills.getMiningExp()),
+                            net.minecraft.network.chat.Component.literal("Foraging exp: " + skills.getExp(PlayerSkillsAttachment.Skill.FORAGING) + "\n" +
+                                    "Combat exp: " + skills.getExp(PlayerSkillsAttachment.Skill.COMBAT) + "\n" +
+                                    "Farming exp: " + skills.getExp(PlayerSkillsAttachment.Skill.FARMING) + "\n" +
+                                    "Fishing exp: " + skills.getExp(PlayerSkillsAttachment.Skill.FISHING) + "\n" +
+                                    "Mining exp: " + skills.getExp(PlayerSkillsAttachment.Skill.MINING)
+                            ),
                     false);
             return 1;
         }));

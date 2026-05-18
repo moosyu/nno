@@ -27,11 +27,11 @@ public class LevelCommand {
                     PlayerSkillsAttachment skills = player.getData(AttachmentRegistry.PLAYER_SKILLS.get());
 
                     int level = switch (skillName.toLowerCase()) {
-                        case "mining" -> skills.getLevel(skills.getMiningExp());
-                        case "foraging" -> skills.getLevel(skills.getForagingExp());
-                        case "fishing" -> skills.getLevel(skills.getFishingExp());
-                        case "combat" -> skills.getLevel(skills.getCombatExp());
-                        case "farming" -> skills.getLevel(skills.getFarmingExp());
+                        case "mining" -> skills.getLevel(skills.getExp(PlayerSkillsAttachment.Skill.MINING));
+                        case "foraging" -> skills.getLevel(skills.getExp(PlayerSkillsAttachment.Skill.FORAGING));
+                        case "fishing" -> skills.getLevel(skills.getExp(PlayerSkillsAttachment.Skill.FISHING));
+                        case "combat" -> skills.getLevel(skills.getExp(PlayerSkillsAttachment.Skill.COMBAT));
+                        case "farming" -> skills.getLevel(skills.getExp(PlayerSkillsAttachment.Skill.FARMING));
                         default -> -1;
                     };
 

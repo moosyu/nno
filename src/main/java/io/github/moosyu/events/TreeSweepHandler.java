@@ -2,6 +2,7 @@ package io.github.moosyu.events;
 
 import io.github.moosyu.NNO;
 import io.github.moosyu.attachments.PlayerSkillsAttachment;
+import io.github.moosyu.experience.BlocksFarmingExperience;
 import io.github.moosyu.registers.AttachmentRegistry;
 import io.github.moosyu.registers.AttributesRegistry;
 import io.github.moosyu.sounds.ModSounds;
@@ -69,7 +70,7 @@ public class TreeSweepHandler {
                 current.player().getInventory().add(new ItemStack(current.state().getBlock(), logs));
             }
 
-            skills.addForagingExp(tasks.size() * 6.0f);
+            skills.addExp(PlayerSkillsAttachment.Skill.FORAGING, tasks.size() * 6.0f);
             ModSounds.playerExperienceSound(tasks.getLast().player());
         }
     }
@@ -99,7 +100,7 @@ public class TreeSweepHandler {
 
         int sweep = (int) player.getAttributeValue(AttributesRegistry.SWEEP);
         if (sweep <= 0) {
-            skills.addForagingExp(6.0f);
+            skills.addExp(PlayerSkillsAttachment.Skill.FORAGING, 6.0f);
             ModSounds.playerExperienceSound(player);
             return;
         }

@@ -1,12 +1,14 @@
 package io.github.moosyu.layers;
 
 import io.github.moosyu.helpers.ShadowTextHelper;
+import io.github.moosyu.registers.AttributesRegistry;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.LayeredDraw;
 import net.minecraft.util.ColorRGBA;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 
 import static io.github.moosyu.helpers.ShadowTextHelper.drawShadowText;
 import static io.github.moosyu.registers.RenderRegister.LARGE_BAR;
@@ -19,10 +21,12 @@ public class ExperienceBarLayer implements LayeredDraw.Layer {
         final int POS_X_BAR = (graphics.guiWidth() / 2) - (SPRITE_WIDTH / 2);
         final int POS_Y_BAR = graphics.guiHeight() - SPRITE_HEIGHT - 17;
 
-        graphics.enableScissor(POS_X_BAR, POS_Y_BAR, POS_X_BAR + SPRITE_WIDTH, POS_Y_BAR + 7);
+        graphics.enableScissor(POS_X_BAR, POS_Y_BAR, POS_X_BAR + SPRITE_WIDTH, POS_Y_BAR + 8);
+        graphics.setColor(0.0425f, 0.85f, 0.258f, 1.0f);
         graphics.blit(LARGE_BAR, POS_X_BAR, POS_Y_BAR, 0, 0, SPRITE_WIDTH, SPRITE_HEIGHT, SPRITE_WIDTH, SPRITE_HEIGHT);
+        graphics.setColor(1.0f, 1.0f, 1.0f, 1.0f);
         graphics.disableScissor();
 
-        drawShadowText(graphics, "0", (graphics.guiWidth() / 2), POS_Y_BAR, 0x7EFC20);
+        drawShadowText(graphics, "520", POS_X_BAR + (SPRITE_WIDTH / 2), POS_Y_BAR, 0x7EFC20);
     }
 }

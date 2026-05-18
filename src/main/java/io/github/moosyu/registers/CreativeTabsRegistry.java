@@ -19,9 +19,9 @@ public class CreativeTabsRegistry {
             () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.nno")) //The language key for the title of your CreativeModeTab
             .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
+            .icon(() -> TREECAPITATOR.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-                output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
+                output.accept(MERCENARY_AXE.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
                 output.accept(EXAMPLE_BLOCK_ITEM.get());
                 output.accept(TREECAPITATOR.get());
                 output.accept(SPRUCE_AXE.get());

@@ -1,6 +1,7 @@
 package io.github.moosyu.events;
 
 import io.github.moosyu.attachments.PlayerSkillsAttachment;
+import io.github.moosyu.experience.BlocksFarmingExperience;
 import io.github.moosyu.experience.EntityCombatExperience;
 import io.github.moosyu.experience.EntityFarmingExperience;
 import io.github.moosyu.registers.AttachmentRegistry;
@@ -30,14 +31,14 @@ public class KillHandler {
 
                 float combatExp = EntityCombatExperience.getExp(event.getEntity().getType());
                 if (combatExp > 0.0f) {
-                    skills.addCombatExp(combatExp);
+                    skills.addExp(PlayerSkillsAttachment.Skill.COMBAT, combatExp);
                     ModSounds.playerExperienceSound(player);
                     return;
                 }
 
                 float farmingExp = EntityFarmingExperience.getExp(event.getEntity().getType());
                 if (farmingExp > 0.0f) {
-                    skills.addFarmingExp(farmingExp);
+                    skills.addExp(PlayerSkillsAttachment.Skill.FARMING, farmingExp);
                     ModSounds.playerExperienceSound(player);
                     return;
                 }

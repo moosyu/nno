@@ -16,7 +16,7 @@ public class RegisterGuiLayersHandler {
     public static class EventHandler {
         @SubscribeEvent
         public static void onRegisterGuiLayer(RegisterGuiLayersEvent event) {
-            System.out.println(event);
+            // https://antongerdelan.net/colour/
             event.replaceLayer(VanillaGuiLayers.PLAYER_HEALTH, new HealthBarLayer());
             event.replaceLayer(VanillaGuiLayers.FOOD_LEVEL, new ManaBarLayer());
             event.replaceLayer(VanillaGuiLayers.EXPERIENCE_BAR, new ExperienceBarLayer());
