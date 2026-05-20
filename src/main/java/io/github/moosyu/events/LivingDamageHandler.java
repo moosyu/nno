@@ -1,6 +1,7 @@
 package io.github.moosyu.events;
 
 import io.github.moosyu.attachments.PlayerStatsAttachment;
+import io.github.moosyu.registers.AttachmentRegistry;
 import io.github.moosyu.registers.AttributesRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -34,8 +35,8 @@ public class LivingDamageHandler {
                     double playerHealth = stats.getCurrentStat(PlayerStatsAttachment.Stat.HEALTH);
 
                     if (playerHealth - mobDamage > 0.0d) {
-                        // playerHealth.setBaseValue(playerHealth.getValue() - mobDamage);
                         stats.removeCurrentStat(PlayerStatsAttachment.Stat.HEALTH, mobDamage);
+                        player.syncData(PLAYER_STATS.get());
                     } else {
                         if (!player.level().isClientSide()) {
                             ServerLevel level = (ServerLevel) player.level();

@@ -2,6 +2,7 @@ package io.github.moosyu.registers;
 
 import io.github.moosyu.attachments.PlayerSkillsAttachment;
 import io.github.moosyu.attachments.PlayerStatsAttachment;
+import io.github.moosyu.helpers.StatsSyncHandler;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -18,6 +19,9 @@ public class AttachmentRegistry {
                     .build()
     );
 
-    public static final Supplier<AttachmentType<PlayerStatsAttachment>> PLAYER_STATS = ATTACHMENTS.register("player_stats", () ->
-            AttachmentType.builder(PlayerStatsAttachment::new).build());
+    //public static final Supplier<AttachmentType<PlayerStatsAttachment>> PLAYER_STATS = ATTACHMENTS.register("player_stats", () ->
+    //        AttachmentType.builder(PlayerStatsAttachment::new)
+    //                .sync(new StatsSyncHandler())
+    //                .build()
+    //);
 }

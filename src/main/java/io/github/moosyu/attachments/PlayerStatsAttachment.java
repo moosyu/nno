@@ -1,7 +1,12 @@
 package io.github.moosyu.attachments;
 
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
+
 public class PlayerStatsAttachment {
     private final double[] stats = new double[Stat.values().length];
+    private int lastUpdatedStat = -1;
+
     public enum Stat {
         HEALTH,
         MANA
@@ -12,12 +17,22 @@ public class PlayerStatsAttachment {
         stats[Stat.MANA.ordinal()] = 0.0f;
     }
 
+    public double[] getStats() {
+        return stats;
+    }
+
+    public void setStats(double[] newStats) {
+        System.arraycopy(newStats, 0, stats, 0, stats.length);
+    }
+
     public double getCurrentStat(Stat currentStat) {
         return stats[currentStat.ordinal()];
     }
 
-    public void setCurrentStat(Stat currentStat, double value) {
-        stats[currentStat.ordinal()] = value;
+    public void setCurrentStat(Stat stat, double value) {
+        int index = stat.ordinal();
+        stats[index] = value;
+        lastUpdatedStat = index;
     }
 
     public void removeCurrentStat(Stat currentStat, double amount) {
@@ -29,5 +44,17 @@ public class PlayerStatsAttachment {
         // the Math.min should return the smaller of the two (so the value doesnt overflow max health
         // very smart but very dangerous
         stats[currentStat.ordinal()] = (float) Math.min(stats[currentStat.ordinal()] + amount, maxAmount);
+    }
+
+    public int getLastUpdatedStat() {
+        return lastUpdatedStat;
+    }
+
+    public double getCurrentStatByIndex(int index) {
+        return stats[index];
+    }
+
+    public void setCurrentStatByIndex(int index, double value) {
+        stats[index] = value;
     }
 }

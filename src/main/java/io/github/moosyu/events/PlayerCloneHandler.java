@@ -20,8 +20,7 @@ public class PlayerCloneHandler {
             PlayerSkillsAttachment oldSkills = event.getOriginal().getData(AttachmentRegistry.PLAYER_SKILLS.get());
             PlayerSkillsAttachment newSkills = event.getEntity().getData(AttachmentRegistry.PLAYER_SKILLS.get());
             newSkills.transferSkills(oldSkills);
-            
-            event.getEntity().getData(AttachmentRegistry.PLAYER_STATS.get()).setCurrentStat(PlayerStatsAttachment.Stat.HEALTH, event.getEntity().getAttribute(AttributesRegistry.HEALTH).getValue());
+            //event.getEntity().getData(AttachmentRegistry.PLAYER_STATS.get()).setCurrentStat(PlayerStatsAttachment.Stat.HEALTH, event.getEntity().getAttribute(AttributesRegistry.HEALTH).getValue());
         }
     }
 }
