@@ -1,6 +1,5 @@
 package io.github.moosyu.events;
 
-import io.github.moosyu.helpers.HealingManager;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingExperienceDropEvent;

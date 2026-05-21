@@ -1,7 +1,6 @@
 package io.github.moosyu.events;
 
 import io.github.moosyu.attachments.PlayerStatsAttachment;
-import io.github.moosyu.helpers.HealingManager;
 import io.github.moosyu.registers.AttributesRegistry;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.FishingHook;
@@ -23,9 +22,8 @@ public class PlayerTickHandler {
             Player player = event.getEntity();
             PlayerStatsAttachment stats = player.getData(PLAYER_STATS.get());
 
-            if (player.level().isClientSide()) {
-                return;
-            }
+            if (player.level().isClientSide()) return;
+
             // disable hunger effects
             player.getFoodData().setFoodLevel(20);
             player.getFoodData().setSaturation(5.0f);
@@ -34,6 +32,7 @@ public class PlayerTickHandler {
             // heal every 2 seconds
             if (player.tickCount % 40 == 0) {
                 stats.addCurrentStat(PlayerStatsAttachment.Stat.HEALTH, 2.0f, player.getAttribute(AttributesRegistry.HEALTH).getValue());
+                player.syncData(PLAYER_STATS);
             }
 
             // fishing popup

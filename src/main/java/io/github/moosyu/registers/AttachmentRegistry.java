@@ -19,9 +19,9 @@ public class AttachmentRegistry {
                     .build()
     );
 
-    //public static final Supplier<AttachmentType<PlayerStatsAttachment>> PLAYER_STATS = ATTACHMENTS.register("player_stats", () ->
-    //        AttachmentType.builder(PlayerStatsAttachment::new)
-    //                .sync(new StatsSyncHandler())
-    //                .build()
-    //);
+    public static final Supplier<AttachmentType<PlayerStatsAttachment>> PLAYER_STATS = ATTACHMENTS.register("player_stats", () ->
+            AttachmentType.builder(PlayerStatsAttachment::new)
+                    .sync(new StatsSyncHandler())
+                    .build()
+    );
 }

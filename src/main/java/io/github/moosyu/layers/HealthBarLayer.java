@@ -1,15 +1,12 @@
 package io.github.moosyu.layers;
 
 import io.github.moosyu.attachments.PlayerStatsAttachment;
-import io.github.moosyu.registers.AttributesRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.LayeredDraw;
 import net.minecraft.client.DeltaTracker;
-import net.minecraft.world.entity.ai.attributes.AttributeInstance;
-import net.minecraft.world.entity.player.Player;
 
-import static io.github.moosyu.helpers.ShadowTextHelper.drawShadowText;
+import static io.github.moosyu.helpers.TextShadowHelper.drawShadowText;
 import static io.github.moosyu.registers.AttachmentRegistry.PLAYER_STATS;
 import static io.github.moosyu.registers.RenderRegister.SMALL_BAR;
 

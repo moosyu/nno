@@ -11,18 +11,20 @@ import org.jetbrains.annotations.Nullable;
 public class StatsSyncHandler implements AttachmentSyncHandler<PlayerStatsAttachment> {
     @Override
     public void write(RegistryFriendlyByteBuf buf, PlayerStatsAttachment attachment, boolean initialSync) {
-        // first sync needs to send over all the data, afterwards just update one
-        if (initialSync) {
-            // 2, 100.0, 100.0
+        int statIndex = attachment.getLastUpdatedStat();
+
+        boolean fullSync = initialSync || statIndex < 0;
+
+        buf.writeBoolean(fullSync);
+
+        if (fullSync) {
             double[] stats = attachment.getStats();
             buf.writeInt(stats.length);
             for (double stat : stats) {
                 buf.writeDouble(stat);
             }
         } else {
-            int statIndex = attachment.getLastUpdatedStat();
             double value = attachment.getCurrentStatByIndex(statIndex);
-
             buf.writeInt(statIndex);
             buf.writeDouble(value);
         }
@@ -30,25 +32,32 @@ public class StatsSyncHandler implements AttachmentSyncHandler<PlayerStatsAttach
 
     @Override
     public @Nullable PlayerStatsAttachment read(IAttachmentHolder holder, RegistryFriendlyByteBuf buf, @Nullable PlayerStatsAttachment previousValue) {
-        if (previousValue == null) {
-            PlayerStatsAttachment attachment = new PlayerStatsAttachment();
+        boolean fullSync = buf.readBoolean();
+
+        if (fullSync) {
+            PlayerStatsAttachment attachment = previousValue != null ? previousValue : new PlayerStatsAttachment();
+
             int length = buf.readInt();
             double[] stats = new double[length];
 
             for (int i = 0; i < length; i++) {
                 stats[i] = buf.readDouble();
             }
+
             attachment.setStats(stats);
             return attachment;
         } else {
             int statIndex = buf.readInt();
             double value = buf.readDouble();
 
+            if (previousValue == null) {
+                previousValue = new PlayerStatsAttachment(); // safety
+            }
+
             previousValue.setCurrentStatByIndex(statIndex, value);
             return previousValue;
         }
     }
-
     @Override
     public boolean sendToPlayer(IAttachmentHolder holder, ServerPlayer player) {
         return holder == player;

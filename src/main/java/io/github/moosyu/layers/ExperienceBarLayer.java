@@ -1,16 +1,10 @@
 package io.github.moosyu.layers;
 
-import io.github.moosyu.helpers.ShadowTextHelper;
-import io.github.moosyu.registers.AttributesRegistry;
 import net.minecraft.client.DeltaTracker;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.LayeredDraw;
-import net.minecraft.util.ColorRGBA;
-import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 
-import static io.github.moosyu.helpers.ShadowTextHelper.drawShadowText;
+import static io.github.moosyu.helpers.TextShadowHelper.drawShadowText;
 import static io.github.moosyu.registers.RenderRegister.LARGE_BAR;
 
 public class ExperienceBarLayer implements LayeredDraw.Layer {

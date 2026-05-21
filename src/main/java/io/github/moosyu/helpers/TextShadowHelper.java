@@ -4,7 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 
-public class ShadowTextHelper {
+public class TextShadowHelper {
     public static void drawShadowText(GuiGraphics graphics, String text, int x, int y, int color) {
         final Font font = Minecraft.getInstance().font;
         int textOffset = (font.width(text) / 2) - 1;
