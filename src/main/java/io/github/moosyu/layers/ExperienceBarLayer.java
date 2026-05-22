@@ -5,7 +5,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.LayeredDraw;
 
 import static io.github.moosyu.helpers.TextShadowHelper.drawShadowText;
-import static io.github.moosyu.registers.RenderRegister.LARGE_BAR;
+import static io.github.moosyu.registers.TextureRegister.LARGE_BAR;
 
 public class ExperienceBarLayer implements LayeredDraw.Layer {
     @Override

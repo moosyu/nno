@@ -4,6 +4,7 @@ import io.github.moosyu.attachments.PlayerSkillsAttachment;
 import io.github.moosyu.experience.BlocksFarmingExperience;
 import io.github.moosyu.experience.BlocksMiningExperience;
 import io.github.moosyu.registers.AttachmentRegistry;
+import io.github.moosyu.registers.AttributesRegistry;
 import io.github.moosyu.sounds.ModSounds;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.player.Player;
@@ -14,6 +15,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.level.BlockEvent;
 
 import static io.github.moosyu.NNO.MODID;
+import static io.github.moosyu.registers.AttachmentRegistry.PLAYER_STATE;
 
 // ran just before a player is to break a block
 public class BlockBreakHandler {

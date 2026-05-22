@@ -8,7 +8,7 @@ import net.minecraft.client.gui.LayeredDraw;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 
 import static io.github.moosyu.helpers.TextShadowHelper.drawShadowText;
-import static io.github.moosyu.registers.RenderRegister.SMALL_BAR;
+import static io.github.moosyu.registers.TextureRegister.SMALL_BAR;
 
 public class ManaBarLayer implements LayeredDraw.Layer {
     @Override

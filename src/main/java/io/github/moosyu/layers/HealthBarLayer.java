@@ -10,7 +10,7 @@ import net.minecraft.world.entity.player.Player;
 
 import static io.github.moosyu.helpers.TextShadowHelper.drawShadowText;
 import static io.github.moosyu.registers.AttachmentRegistry.PLAYER_STATE;
-import static io.github.moosyu.registers.RenderRegister.SMALL_BAR;
+import static io.github.moosyu.registers.TextureRegister.SMALL_BAR;
 
 public class HealthBarLayer implements LayeredDraw.Layer {
     @Override
