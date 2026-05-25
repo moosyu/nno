@@ -1,5 +1,6 @@
 package io.github.moosyu;
 
+import io.github.moosyu.registers.AttributesRegistry;
 import net.minecraft.client.AttackIndicatorStatus;
 import net.minecraft.client.Minecraft;
 import org.slf4j.Logger;
@@ -46,6 +47,7 @@ public class NNO {
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
         ATTACHMENTS.register(modEventBus);
+        AttributesRegistry.registerAll();
         ATTRIBUTES.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.

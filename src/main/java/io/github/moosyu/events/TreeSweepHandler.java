@@ -2,6 +2,7 @@ package io.github.moosyu.events;
 
 import io.github.moosyu.NNO;
 import io.github.moosyu.attachments.PlayerSkillsAttachment;
+import io.github.moosyu.attributes.ModAttributes;
 import io.github.moosyu.experience.BlocksFarmingExperience;
 import io.github.moosyu.registers.AttachmentRegistry;
 import io.github.moosyu.registers.AttributesRegistry;
@@ -81,7 +82,7 @@ public class TreeSweepHandler {
     }
 
     private static int calculateLogs(Player player) {
-        var attribute = player.getAttribute(AttributesRegistry.FORAGING_FORTUNE);
+        var attribute = player.getAttribute(ModAttributes.FORAGING_FORTUNE.holder);
         // making sure attribute isnt null, probably pointless but i also managed to fuck up registering it last time and it made the game crash
         double fortune = attribute != null ? attribute.getValue() : 0.0;
         double multiplier = 1.0 + (fortune / 100.0);
@@ -103,7 +104,7 @@ public class TreeSweepHandler {
         // removing the initial block (as the vanilla block break is canceled)
         level.removeBlock(startPos, false);
 
-        int sweep = (int) player.getAttributeValue(AttributesRegistry.SWEEP);
+        int sweep = (int) player.getAttributeValue(ModAttributes.SWEEP.holder);
         if (sweep <= 0) {
             skills.addExp(PlayerSkillsAttachment.Skill.FORAGING, 6.0f);
             player.syncData(PLAYER_SKILLS);

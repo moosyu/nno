@@ -1,6 +1,7 @@
 package io.github.moosyu.events;
 
 import io.github.moosyu.attachments.PlayerStateAttachment;
+import io.github.moosyu.attributes.ModAttributes;
 import io.github.moosyu.registers.AttributesRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -31,7 +32,7 @@ public class LivingDamageHandler {
                 event.setNewDamage(0.0f);
                 if (attacker instanceof LivingEntity entity) {
                     PlayerStateAttachment states = player.getData(PLAYER_STATE.get());
-                    double mobDamage = entity.getAttribute(AttributesRegistry.DAMAGE).getBaseValue();
+                    double mobDamage = entity.getAttribute(ModAttributes.DAMAGE.holder).getBaseValue();
                     double playerHealth = states.getCurrentStat(PlayerStateAttachment.Stat.HEALTH);
                     if (playerHealth - mobDamage > 0.0d) {
                         states.removeCurrentStat(PlayerStateAttachment.Stat.HEALTH, mobDamage);
@@ -40,7 +41,7 @@ public class LivingDamageHandler {
                         BlockPos spawnPos = level.getSharedSpawnPos();
                         player.teleportTo(spawnPos.getX() + 0.5, spawnPos.getY(), spawnPos.getZ() + 0.5);
                         player.sendSystemMessage(Component.literal(player.getName().getString() + " was slain by a " + entity.getName().getString() + "!").withStyle(ChatFormatting.RED));
-                        states.setCurrentStat(PlayerStateAttachment.Stat.HEALTH, player.getAttributeValue(AttributesRegistry.HEALTH));
+                        states.setCurrentStat(PlayerStateAttachment.Stat.HEALTH, player.getAttributeValue(ModAttributes.HEALTH.holder));
                         player.syncData(PLAYER_STATE.get());
                         player.playNotifySound(SoundEvents.ANVIL_LAND, SoundSource.PLAYERS, 0.8f, 1.2f);
                         states.setCancelledKnockback(true);

@@ -6,5 +6,6 @@ import net.minecraft.resources.ResourceLocation;
 public class TextureRegister {
     public static final ResourceLocation SMALL_BAR = ResourceLocation.fromNamespaceAndPath("nno", "textures/gui/small_bar.png");
     public static final ResourceLocation LARGE_BAR = ResourceLocation.fromNamespaceAndPath("nno", "textures/gui/large_bar.png");
-    public static final ResourceLocation EMPTY_SCREEN = ResourceLocation.fromNamespaceAndPath("nno", "textures/gui/empty_screen.png");
+    public static final ResourceLocation SKILL_BAR = ResourceLocation.fromNamespaceAndPath("nno", "textures/gui/skill_bar.png");
+    public static final ResourceLocation PROFILE_SCREEN = ResourceLocation.fromNamespaceAndPath("nno", "textures/gui/profile_screen_grid.png");
 }

@@ -1,5 +1,6 @@
 package io.github.moosyu.events;
 
+import io.github.moosyu.attributes.ModAttributes;
 import io.github.moosyu.registers.AttributesRegistry;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -22,9 +23,9 @@ public class AttackEntityHandler {
             if (!(event.getTarget() instanceof LivingEntity target) || player.level().isClientSide()) return;
             event.setCanceled(true);
             double critDamage = 0.0d;
-            if (player.getAttributeValue(AttributesRegistry.CRITICAL_CHANCE) >= (Math.random() * 101)) critDamage = player.getAttributeValue(AttributesRegistry.CRITICAL_DAMAGE);
-            double damage = ((5 + player.getAttributeValue(AttributesRegistry.DAMAGE)) * (1 + (player.getAttributeValue(AttributesRegistry.STRENGTH) / 100))) * (1 + (critDamage / 100));
-            AttributeInstance health = target.getAttribute(AttributesRegistry.HEALTH);
+            if (player.getAttributeValue(ModAttributes.CRITICAL_CHANCE.holder) >= (Math.random() * 101)) critDamage = player.getAttributeValue(ModAttributes.CRITICAL_DAMAGE.holder);
+            double damage = ((5 + player.getAttributeValue(ModAttributes.DAMAGE.holder)) * (1 + (player.getAttributeValue(ModAttributes.STRENGTH.holder) / 100))) * (1 + (critDamage / 100));
+            AttributeInstance health = target.getAttribute(ModAttributes.HEALTH.holder);
             if (target.invulnerableTime <= 0 && health != null) {
                 if ((health.getBaseValue() - damage) > 0) {
                     health.setBaseValue(health.getBaseValue() - damage);

@@ -14,7 +14,7 @@ public class PlayerSkillsAttachment {
     private final float[] skillExp = new float[Skill.values().length];
     private final float playerExp;
 
-    // ideally these should be using like lang files for names but i dont really intend on translating this mod so i dont mind rn
+    // todo: ideally these should be using like lang files for names but i dont really intend on translating this mod so i dont mind rn
     public enum Skill {
         COMBAT("Combat", Items.STONE_SWORD),
         FARMING("Farming", Items.GOLDEN_HOE),
@@ -62,6 +62,15 @@ public class PlayerSkillsAttachment {
             level++;
         }
         return level;
+    }
+
+    public float getPercentageToLevel(float exp) {
+        int index = 0;
+        while (index < SKILL_LEVEL_TABLE.length && exp >= SKILL_LEVEL_TABLE[index]) {
+            index++;
+        }
+        float prevLevelXP = (index == 0) ? 0 : SKILL_LEVEL_TABLE[index - 1];
+        return (exp - prevLevelXP) / (SKILL_LEVEL_TABLE[index] - prevLevelXP);
     }
 
     // both codecs are pretty weird because i found them in different places online

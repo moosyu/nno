@@ -1,5 +1,6 @@
 package io.github.moosyu.registers;
 
+import io.github.moosyu.attributes.ModAttributes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -19,9 +20,9 @@ public class ItemsRegistry {
     public static final DeferredItem<BlockItem> EXAMPLE_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("example_block", EXAMPLE_BLOCK);
 
     public static final DeferredItem<AxeItem> MERCENARY_AXE = ITEMS.register("mercenary_axe", () -> new AxeItem(Tiers.IRON, new Item.Properties().attributes(
-                    ItemAttributeModifiers.builder().add(AttributesRegistry.DAMAGE,
+                    ItemAttributeModifiers.builder().add(ModAttributes.DAMAGE.holder,
                             new AttributeModifier(ResourceLocation.fromNamespaceAndPath(MODID, "damage"), 70, AttributeModifier.Operation.ADD_VALUE),
-                            EquipmentSlotGroup.MAINHAND).add(AttributesRegistry.STRENGTH,
+                            EquipmentSlotGroup.MAINHAND).add(ModAttributes.STRENGTH.holder,
                             new AttributeModifier(ResourceLocation.fromNamespaceAndPath(MODID, "strength"), 20, AttributeModifier.Operation.ADD_VALUE),
                             EquipmentSlotGroup.MAINHAND
                     ).build()
@@ -29,9 +30,9 @@ public class ItemsRegistry {
     );
     // todo: make it so the foraging fortune only applies in certain areas (the park, not the galatea)
     public static final DeferredItem<AxeItem> TREECAPITATOR = ITEMS.register("treecapitator", () -> new AxeItem(Tiers.GOLD, new Item.Properties().attributes(
-                    ItemAttributeModifiers.builder().add(AttributesRegistry.SWEEP,
+                    ItemAttributeModifiers.builder().add(ModAttributes.SWEEP.holder,
                             new AttributeModifier(ResourceLocation.fromNamespaceAndPath(MODID, "sweep"), 25, AttributeModifier.Operation.ADD_VALUE),
-                            EquipmentSlotGroup.MAINHAND).add(AttributesRegistry.FORAGING_FORTUNE,
+                            EquipmentSlotGroup.MAINHAND).add(ModAttributes.FORAGING_FORTUNE.holder,
                             new AttributeModifier(ResourceLocation.fromNamespaceAndPath(MODID, "foraging_fortune"), 100, AttributeModifier.Operation.ADD_VALUE),
                             EquipmentSlotGroup.MAINHAND
                     ).build()
@@ -40,9 +41,9 @@ public class ItemsRegistry {
 
     // todo: make it so the foraging fortune only applies in certain areas (the park, not the galatea)
     public static final DeferredItem<AxeItem> SPRUCE_AXE = ITEMS.register("spruce_axe", () -> new AxeItem(Tiers.WOOD, new Item.Properties().attributes(
-                    ItemAttributeModifiers.builder().add(AttributesRegistry.SWEEP,
+                    ItemAttributeModifiers.builder().add(ModAttributes.SWEEP.holder,
                             new AttributeModifier(ResourceLocation.fromNamespaceAndPath(MODID, "sweep"), 4, AttributeModifier.Operation.ADD_VALUE),
-                            EquipmentSlotGroup.MAINHAND).add(AttributesRegistry.FORAGING_FORTUNE,
+                            EquipmentSlotGroup.MAINHAND).add(ModAttributes.FORAGING_FORTUNE.holder,
                             new AttributeModifier(ResourceLocation.fromNamespaceAndPath(MODID, "foraging_fortune"), 50, AttributeModifier.Operation.ADD_VALUE),
                             EquipmentSlotGroup.MAINHAND
                     ).build()
@@ -50,9 +51,9 @@ public class ItemsRegistry {
     );
 
     public static final DeferredItem<AxeItem> SERIOUSLY_DAMAGED_AXE = ITEMS.register("seriously_damaged_axe", () -> new AxeItem(Tiers.WOOD, new Item.Properties().attributes(
-                    ItemAttributeModifiers.builder().add(AttributesRegistry.SWEEP,
+                    ItemAttributeModifiers.builder().add(ModAttributes.SWEEP.holder,
                             new AttributeModifier(ResourceLocation.fromNamespaceAndPath(MODID, "sweep"), 7, AttributeModifier.Operation.ADD_VALUE),
-                            EquipmentSlotGroup.MAINHAND).add(AttributesRegistry.FORAGING_FORTUNE,
+                            EquipmentSlotGroup.MAINHAND).add(ModAttributes.FORAGING_FORTUNE.holder,
                             new AttributeModifier(ResourceLocation.fromNamespaceAndPath(MODID, "foraging_fortune"), 5, AttributeModifier.Operation.ADD_VALUE),
                             EquipmentSlotGroup.MAINHAND
                     ).build()
@@ -60,9 +61,9 @@ public class ItemsRegistry {
     );
 
     public static final DeferredItem<AxeItem> DECENT_AXE = ITEMS.register("decent_axe", () -> new AxeItem(Tiers.WOOD, new Item.Properties().attributes(
-                    ItemAttributeModifiers.builder().add(AttributesRegistry.SWEEP,
+                    ItemAttributeModifiers.builder().add(ModAttributes.SWEEP.holder,
                             new AttributeModifier(ResourceLocation.fromNamespaceAndPath(MODID, "sweep"), 24, AttributeModifier.Operation.ADD_VALUE),
-                            EquipmentSlotGroup.MAINHAND).add(AttributesRegistry.FORAGING_FORTUNE,
+                            EquipmentSlotGroup.MAINHAND).add(ModAttributes.FORAGING_FORTUNE.holder,
                             new AttributeModifier(ResourceLocation.fromNamespaceAndPath(MODID, "foraging_fortune"), 5, AttributeModifier.Operation.ADD_VALUE),
                             EquipmentSlotGroup.MAINHAND
                     ).build()
@@ -70,9 +71,9 @@ public class ItemsRegistry {
     );
 
     public static final DeferredItem<AxeItem> FIG_HEW = ITEMS.register("fig_hew", () -> new AxeItem(Tiers.WOOD, new Item.Properties().attributes(
-                    ItemAttributeModifiers.builder().add(AttributesRegistry.SWEEP,
+                    ItemAttributeModifiers.builder().add(ModAttributes.SWEEP.holder,
                             new AttributeModifier(ResourceLocation.fromNamespaceAndPath(MODID, "sweep"), 7, AttributeModifier.Operation.ADD_VALUE),
-                            EquipmentSlotGroup.MAINHAND).add(AttributesRegistry.FORAGING_FORTUNE,
+                            EquipmentSlotGroup.MAINHAND).add(ModAttributes.FORAGING_FORTUNE.holder,
                             new AttributeModifier(ResourceLocation.fromNamespaceAndPath(MODID, "foraging_fortune"), 20, AttributeModifier.Operation.ADD_VALUE),
                             EquipmentSlotGroup.MAINHAND
                     ).build()
@@ -80,9 +81,9 @@ public class ItemsRegistry {
     );
 
     public static final DeferredItem<AxeItem> FIGSTONE_SPLITTER = ITEMS.register("figstone_splitter", () -> new AxeItem(Tiers.WOOD, new Item.Properties().attributes(
-                    ItemAttributeModifiers.builder().add(AttributesRegistry.SWEEP,
+                    ItemAttributeModifiers.builder().add(ModAttributes.SWEEP.holder,
                             new AttributeModifier(ResourceLocation.fromNamespaceAndPath(MODID, "sweep"), 24, AttributeModifier.Operation.ADD_VALUE),
-                            EquipmentSlotGroup.MAINHAND).add(AttributesRegistry.FORAGING_FORTUNE,
+                            EquipmentSlotGroup.MAINHAND).add(ModAttributes.FORAGING_FORTUNE.holder,
                             new AttributeModifier(ResourceLocation.fromNamespaceAndPath(MODID, "foraging_fortune"), 35, AttributeModifier.Operation.ADD_VALUE),
                             EquipmentSlotGroup.MAINHAND
                     ).build()
@@ -91,7 +92,7 @@ public class ItemsRegistry {
 
     public static final DeferredItem<Item> LEAFLET_CHESTPLATE = ITEMS.registerItem("leaflet_chestplate", props -> new ArmorItem(
             ArmorMaterials.LEATHER, ArmorItem.Type.CHESTPLATE, new Item.Properties().attributes(ItemAttributeModifiers.builder().add(
-            AttributesRegistry.HEALTH,
+            ModAttributes.HEALTH.holder,
             new AttributeModifier(ResourceLocation.fromNamespaceAndPath(MODID, "health"), 80,
                     AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.CHEST).build()))
     );

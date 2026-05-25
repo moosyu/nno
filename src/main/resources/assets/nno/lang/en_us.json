@@ -17,6 +17,7 @@
   "attribute.name.nno.critical_damage": "Critical Damage",
   "attribute.name.nno.critical_chance": "Critical Chance",
   "attribute.name.nno.mana": "Mana",
+  "attribute.name.nno.health_regen": "Health Regen",
 
   "nno.configuration.title": "NNO Configs",
   "nno.configuration.section.nno.common.toml": "NNO Configs",

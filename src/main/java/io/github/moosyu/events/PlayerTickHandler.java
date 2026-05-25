@@ -1,6 +1,7 @@
 package io.github.moosyu.events;
 
 import io.github.moosyu.attachments.PlayerStateAttachment;
+import io.github.moosyu.attributes.ModAttributes;
 import io.github.moosyu.registers.AttributesRegistry;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.FishingHook;
@@ -28,10 +29,10 @@ public class PlayerTickHandler {
             player.getFoodData().setSaturation(5.0f);
             player.getFoodData().setExhaustion(0.0f);
 
-            double maxHealth = player.getAttribute(AttributesRegistry.HEALTH).getValue();
+            double maxHealth = player.getAttribute(ModAttributes.HEALTH.holder).getValue();
             // heal every 2 seconds
             if (player.tickCount % 40 == 0) {
-                double healthGained = (1.5 + maxHealth/100) * (player.getAttribute(AttributesRegistry.HEALTH_REGEN).getValue()/100);
+                double healthGained = (1.5 + maxHealth/100) * (player.getAttribute(ModAttributes.HEALTH_REGEN.holder).getValue()/100);
                 stats.addCurrentStat(PlayerStateAttachment.Stat.HEALTH, healthGained, maxHealth);
                 player.syncData(PLAYER_STATE);
             } else {

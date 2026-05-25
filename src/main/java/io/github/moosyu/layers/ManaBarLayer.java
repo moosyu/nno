@@ -1,5 +1,6 @@
 package io.github.moosyu.layers;
 
+import io.github.moosyu.attributes.ModAttributes;
 import io.github.moosyu.registers.AttributesRegistry;
 import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
@@ -18,7 +19,7 @@ public class ManaBarLayer implements LayeredDraw.Layer {
         final int BAR_HEIGHT = 8;
         final int POS_X_BAR = (graphics.guiWidth() / 2) - (SPRITE_WIDTH / 2) + 54;
         final int POS_Y_BAR = graphics.guiHeight() - SPRITE_HEIGHT - 24;
-        final AttributeInstance manaAttribute = Minecraft.getInstance().player.getAttribute(AttributesRegistry.MANA);
+        final AttributeInstance manaAttribute = Minecraft.getInstance().player.getAttribute(ModAttributes.MANA.holder);
 
         graphics.setColor(0.0f, 0.653f, 1f, 1.0f);
         graphics.blit(SMALL_BAR, POS_X_BAR, POS_Y_BAR, 0, BAR_HEIGHT - 1, SPRITE_WIDTH, BAR_HEIGHT, SPRITE_WIDTH, SPRITE_HEIGHT);

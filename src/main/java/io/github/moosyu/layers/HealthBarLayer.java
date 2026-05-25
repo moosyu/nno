@@ -1,6 +1,7 @@
 package io.github.moosyu.layers;
 
 import io.github.moosyu.attachments.PlayerStateAttachment;
+import io.github.moosyu.attributes.ModAttributes;
 import io.github.moosyu.registers.AttributesRegistry;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -24,7 +25,7 @@ public class HealthBarLayer implements LayeredDraw.Layer {
         Player player = Minecraft.getInstance().player;
         if (!player.level().isClientSide) return;
         final double currentHealth = player.getData(PLAYER_STATE.get()).getCurrentStat(PlayerStateAttachment.Stat.HEALTH);
-        final double healthPercentage = (player.getData(PLAYER_STATE.get()).getCurrentStat(PlayerStateAttachment.Stat.HEALTH) / player.getAttributeValue(AttributesRegistry.HEALTH));
+        final double healthPercentage = (player.getData(PLAYER_STATE.get()).getCurrentStat(PlayerStateAttachment.Stat.HEALTH) / player.getAttributeValue(ModAttributes.HEALTH.holder));
 
         graphics.setColor(1.0f, 0.01f, 0.043f, 1.0f);
         // -1 because the texture is bad sorry
