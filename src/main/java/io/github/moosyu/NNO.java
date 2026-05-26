@@ -20,6 +20,7 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
+import static io.github.moosyu.registers.ArmorMaterialRegister.ARMOR_MATERIALS;
 import static io.github.moosyu.registers.AttachmentRegistry.ATTACHMENTS;
 import static io.github.moosyu.registers.AttributesRegistry.ATTRIBUTES;
 import static io.github.moosyu.registers.BlocksRegistry.BLOCKS;
@@ -49,6 +50,7 @@ public class NNO {
         ATTACHMENTS.register(modEventBus);
         AttributesRegistry.registerAll();
         ATTRIBUTES.register(modEventBus);
+        ARMOR_MATERIALS.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (NNO) to respond directly to events.

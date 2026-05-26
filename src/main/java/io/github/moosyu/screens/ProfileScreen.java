@@ -11,28 +11,26 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 
 import static io.github.moosyu.registers.TextureRegister.*;
 
 public class ProfileScreen extends Screen {
     private enum Tabs {
-        SKILLS(SKILLS_ICON),
-        STATS(PROFILE_ICON),
-        QUESTS(QUESTS_ICON),
-        CRAFTING(CRAFTING_ICON),
-        COLLECTIONS(COLLECTION_ICON),
-        PETS(PETS_ICON),
-        STORAGE(STORAGE_ICON),
-        WARDROBE(WARDROBE_ICON),
-        BANK(BANK_ICON),
-        WARP(BuiltInRegistries.ITEM.getKey(Items.STONE)),
-        BAGS(BAGS_ICON);
+        SKILLS(ResourceLocation.fromNamespaceAndPath("minecraft", "textures/block/stone.png")),
+        STATS(ResourceLocation.fromNamespaceAndPath("minecraft", "textures/block/stone.png")),
+        QUESTS(ResourceLocation.fromNamespaceAndPath("minecraft", "textures/block/stone.png")),
+        CRAFTING(ResourceLocation.fromNamespaceAndPath("minecraft", "textures/block/stone.png")),
+        COLLECTIONS(ResourceLocation.fromNamespaceAndPath("minecraft", "textures/block/stone.png")),
+        PETS(ResourceLocation.fromNamespaceAndPath("minecraft", "textures/block/stone.png")),
+        STORAGE(ResourceLocation.fromNamespaceAndPath("minecraft", "textures/block/stone.png")),
+        WARDROBE(ResourceLocation.fromNamespaceAndPath("minecraft", "textures/block/stone.png")),
+        BANK(ResourceLocation.fromNamespaceAndPath("minecraft", "textures/block/stone.png")),
+        WARP(ResourceLocation.fromNamespaceAndPath("minecraft", "textures/block/stone.png")),
+        BAGS(ResourceLocation.fromNamespaceAndPath("minecraft", "textures/block/stone.png"));
 
         private final ResourceLocation iconTexture;
 
@@ -200,19 +198,13 @@ public class ProfileScreen extends Screen {
                 graphics.pose().popPose();
 
                 // icons
-                graphics.pose().pushPose();
-                graphics.pose().scale(2f, 2f, 2f);
-                graphics.blit( iconTexture, this.getX() / 2, active ? (this.getY() / 2) - 1 : (this.getY() / 2), 0, active ? 0 : 5, 16, active ? 16 : 11, 16, 16);                graphics.pose().popPose();
+                graphics.blit( iconTexture, this.getX(), active ? (this.getY()) - 1 : (this.getY()), 0, active ? 0 : 5, 16, active ? 16 : 11, 16, 16);
             } else {
                 graphics.blit(texture, this.getX(), this.getY(), 0, 0, width, height, width, height);
 
                 // icons
-                graphics.pose().pushPose();
-                graphics.pose().scale(2f, 2f, 2f);
-                graphics.blit(iconTexture, this.getX() / 2, active ? (this.getY() / 2) + 1 : (this.getY() / 2) + 5, 0, 0, 16, active ? 16 : 11, 16, 16);
-                graphics.pose().popPose();
+                graphics.blit(iconTexture, this.getX(), active ? (this.getY()) + 1 : (this.getY()) + 5, 0, 0, 16, active ? 16 : 11, 16, 16);
             }
-
         }
 
         @Override

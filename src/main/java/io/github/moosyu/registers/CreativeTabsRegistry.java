@@ -29,6 +29,9 @@ public class CreativeTabsRegistry {
                 output.accept(DECENT_AXE.get());
                 output.accept(FIG_HEW.get());
                 output.accept(FIGSTONE_SPLITTER.get());
+                output.accept(LEAFLET_HELMET.get());
                 output.accept(LEAFLET_CHESTPLATE.get());
+                output.accept(LEAFLET_LEGGINGS.get());
+                output.accept(LEAFLET_BOOTS.get());
             }).build());
 }
