@@ -13,10 +13,4 @@ public class NNOAxeTool extends AxeItem {
     public NNOAxeTool(Tier tier, Properties properties) {
         super(tier, properties);
     }
-
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-        TooltipHelper.displayHoverText(stack, tooltipComponents, "Axe");
-    }
 }

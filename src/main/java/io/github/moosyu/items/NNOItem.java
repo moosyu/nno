@@ -15,9 +15,4 @@ public class NNOItem extends Item {
         super(properties);
         this.itemType = itemType;
     }
-
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        TooltipHelper.displayHoverText(stack, tooltipComponents, itemType);
-    }
 }

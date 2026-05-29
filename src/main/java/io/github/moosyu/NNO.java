@@ -1,5 +1,6 @@
 package io.github.moosyu;
 
+import io.github.moosyu.attributes.ModAttributes;
 import io.github.moosyu.registers.AttributesRegistry;
 import net.minecraft.client.AttackIndicatorStatus;
 import net.minecraft.client.Minecraft;
@@ -79,6 +80,7 @@ public class NNO {
         LOGGER.info("{}{}", Config.MAGIC_NUMBER_INTRODUCTION.get(), Config.MAGIC_NUMBER.getAsInt());
 
         Config.ITEM_STRINGS.get().forEach((item) -> LOGGER.info("ITEM >> {}", item));
+        event.enqueueWork(ModAttributes::buildLookup);
     }
 
     // Add the example block item to the building blocks tab
@@ -93,5 +95,6 @@ public class NNO {
     public void onServerStarting(ServerStartingEvent event) {
         // Do something when the server starts
         LOGGER.info("HELLO from server starting");
+        ModAttributes.buildLookup();
     }
 }

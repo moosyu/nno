@@ -17,10 +17,4 @@ public class NNOArmorItem extends ArmorItem {
         super(material, type, properties);
         this.itemType = itemType;
     }
-
-    @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
-        TooltipHelper.displayHoverText(stack, tooltipComponents, itemType);
-    }
 }
